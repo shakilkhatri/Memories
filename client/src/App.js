@@ -13,7 +13,6 @@ import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";
 import { getPosts } from "./actions/posts";
 import "./App.css";
-import memories from "./images/memories.png";
 
 const App = () => {
   const [currentId, setCurrentId] = useState(0);
@@ -46,12 +45,6 @@ const App = () => {
       </Box>
       <Container maxWidth="lg">
         <div>
-          {/* <AppBar className="appBar" position="static" color="inherit">
-          <Typography className="heading" variant="h2" align="center">
-            Memories
-          </Typography>
-          <img className="image" src={memories} alt="icon" height="60" />
-        </AppBar> */}
           <Grow in>
             <Container>
               <Grid
