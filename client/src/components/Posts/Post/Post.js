@@ -39,17 +39,26 @@ const Post = ({ post, setCurrentId }) => {
         <Button
           style={{ color: "white" }}
           size="small"
-          onClick={() => setCurrentId(post._id)}
+          onClick={() => {
+            setCurrentId(post._id);
+            window.scroll({
+              top: 0,
+              left: 0,
+              behavior: "smooth",
+            });
+          }}
         >
-          <MoreHorizIcon fontSize="default" />
+          <MoreHorizIcon fontSize="large" />
         </Button>
       </div>
-      <div className="details">
-        <Typography variant="body2" color="textSecondary" component="h2">
-          {post.tags.map((tag) => `#${tag} `)}
-        </Typography>
-      </div>
-      <Typography className="title" gutterBottom variant="h5" component="h2">
+
+      <Typography
+        className="title"
+        gutterBottom
+        variant="h5"
+        component="h2"
+        sx={{ marginTop: "10px" }}
+      >
         {post.title}
       </Typography>
       <CardContent>

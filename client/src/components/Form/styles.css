@@ -1,21 +1,28 @@
-/* 
-  root: {
-    & .MuiTextField-root: {
-      margin: theme.spacing(1);
-    };
-  }; */
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .paper {
   padding: 10px;
+  width: 900px;
+  align-content: center;
+  min-width: 300px;
+  margin-bottom: 30px;
 }
 .form {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
+  max-height: fit-content;
+  min-width: 300px;
+  background-color: rgba(255, 228, 196, 0.185);
 }
 .fileInput {
   width: 97%;
-  margin: 10px 0;
+  padding: 10px;
 }
 .buttonSubmit {
   margin-bottom: 10;
@@ -24,4 +31,40 @@
 .fileInput {
   width: 97%;
   margin: 10px 0;
+}
+
+.part1 {
+  max-width: 400px;
+}
+
+.part {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  max-height: 150px;
+}
+
+.message {
+  max-width: 400px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 5px 0 0 0;
+}
+
+.clearBtn {
+  margin: 20px 20px;
+  color: aqua;
+}
+
+.textField {
+  margin: 10px;
+}
+@media (max-width: 950px) {
+  .part {
+    max-height: unset;
+  }
 }

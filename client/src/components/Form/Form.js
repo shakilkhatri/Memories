@@ -54,77 +54,83 @@ const Form = ({ currentId, setCurrentId }) => {
         className="form"
         onSubmit={handleSubmit}
       >
-        <Typography variant="h6">
+        <Typography
+          variant="h5"
+          sx={{ margin: "5px 0 10px 0", textAlign: "center" }}
+        >
           {currentId ? `Editing "${post.title}"` : "Creating a Memory"}
         </Typography>
-        <TextField
-          name="creator"
-          variant="outlined"
-          label="Creator"
-          fullWidth
-          value={postData.creator}
-          onChange={(e) =>
-            setPostData({ ...postData, creator: e.target.value })
-          }
-        />
-        <TextField
-          name="title"
-          variant="outlined"
-          label="Title"
-          fullWidth
-          value={postData.title}
-          onChange={(e) => setPostData({ ...postData, title: e.target.value })}
-        />
-        <TextField
-          name="message"
-          variant="outlined"
-          label="Message"
-          fullWidth
-          multiline
-          rows={4}
-          value={postData.message}
-          onChange={(e) =>
-            setPostData({ ...postData, message: e.target.value })
-          }
-        />
-        <TextField
-          name="tags"
-          variant="outlined"
-          label="Tags (coma separated)"
-          fullWidth
-          value={postData.tags}
-          onChange={(e) =>
-            setPostData({ ...postData, tags: e.target.value.split(",") })
-          }
-        />
-        <div className="fileInput">
-          <FileBase
-            type="file"
-            multiple={false}
-            onDone={({ base64 }) =>
-              setPostData({ ...postData, selectedFile: base64 })
+        <div className="part">
+          <div className="part1">
+            <TextField
+              sx={{ margin: "5px" }}
+              name="creator"
+              variant="outlined"
+              label="Creator"
+              fullWidth
+              value={postData.creator}
+              onChange={(e) =>
+                setPostData({ ...postData, creator: e.target.value })
+              }
+            />
+            <TextField
+              sx={{ margin: "5px" }}
+              name="title"
+              variant="outlined"
+              label="Title"
+              fullWidth
+              value={postData.title}
+              onChange={(e) =>
+                setPostData({ ...postData, title: e.target.value })
+              }
+            />
+            <div className="fileInput">
+              <FileBase
+                sx={{ margin: "5px" }}
+                type="file"
+                multiple={false}
+                onDone={({ base64 }) =>
+                  setPostData({ ...postData, selectedFile: base64 })
+                }
+              />
+            </div>
+          </div>
+          <TextField
+            className="message"
+            name="message"
+            variant="outlined"
+            label="Message"
+            fullWidth
+            multiline
+            rows={4}
+            value={postData.message}
+            onChange={(e) =>
+              setPostData({ ...postData, message: e.target.value })
             }
           />
         </div>
-        <Button
-          className="buttonSubmit"
-          variant="contained"
-          color="primary"
-          size="large"
-          type="submit"
-          fullWidth
-        >
-          Submit
-        </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          size="small"
-          onClick={clear}
-          fullWidth
-        >
-          Clear
-        </Button>
+        <div className="buttons">
+          <Button
+            className="buttonSubmit"
+            variant="contained"
+            color="primary"
+            size="large"
+            type="submit"
+            sx={{ margin: "0px 0 0 20px", width: "150px" }}
+          >
+            Submit
+          </Button>
+          <Button
+            className="clearBtn"
+            variant="contained"
+            color="error"
+            size="large"
+            onClick={clear}
+            // fullWidth
+          >
+            Clear
+          </Button>
+        </div>
       </form>
     </Paper>
   );
